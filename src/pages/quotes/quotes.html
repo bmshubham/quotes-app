@@ -19,7 +19,13 @@
       #{{ i +1 }}
     </ion-card-header>
     <ion-card-content>
-      {{ quote.text }}
-    </ion-card-content>   
+      <p>{{ quote.text }}</p>      
+      <p class="author">{{ quote.person }}</p>
+    </ion-card-content> 
+      <ion-row>
+          <ion-col text-right>
+            <button clear small (click)="onAddToFavorite(quote)" ion-button>Favorite</button>
+          </ion-col>
+      </ion-row>
   </ion-card>
 </ion-content>

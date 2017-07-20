@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, AlertController } from 'ionic-angular';
 import { Data } from './../../data/data.interface';
 
 /**
@@ -16,7 +16,7 @@ import { Data } from './../../data/data.interface';
 export class QuotesPage implements OnInit{
   quoteGroup: {category: string, quotes: Data[], icon: string};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -26,6 +26,26 @@ export class QuotesPage implements OnInit{
 
   ngOnInit() {
     this.quoteGroup = this.navParams.data;
+  }
+
+  onAddToFavorite(selectQuote: Data) {
+    const alert =   this.alertCtrl.create({
+      title: 'Add Quote',
+      subTitle: 'Are You Sure?',
+      message: 'Are You Sure You Want To Add Quote?',
+      buttons: [
+        {
+          text: 'Yes, Go Ahead!',
+          handler: () => { console.log('Ok'); }
+        },
+        {
+          text: 'No, I Changed My Mind!!',
+          role: 'cancel',
+          handler: () => { console.log('Cancelled'); }
+        }
+      ]
+    });
+    alert.present();
   }
 
 }
