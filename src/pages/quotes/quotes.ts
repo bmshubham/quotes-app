@@ -16,7 +16,7 @@ import { Data } from './../../data/data.interface';
 export class QuotesPage implements OnInit{
   quoteGroup: {category: string, quotes: Data[], icon: string};
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public alertCtrl: AlertController, public quotesService: ) {
   }
 
   ionViewDidLoad() {
