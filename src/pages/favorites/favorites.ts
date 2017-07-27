@@ -50,4 +50,5 @@ export class FavoritesPage {
         this.quotes.splice(position, 1);
   }
 
+
 }
